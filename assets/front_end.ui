@@ -40,7 +40,18 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="source_telescope_selector"/>
+             <widget class="QComboBox" name="source_telescope_selector">
+              <item>
+               <property name="text">
+                <string>Hubble</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>James Webb</string>
+               </property>
+              </item>
+             </widget>
             </item>
            </layout>
           </item>
@@ -68,7 +79,23 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="object_type_selector"/>
+             <widget class="QComboBox" name="object_type_selector">
+              <item>
+               <property name="text">
+                <string>N/A</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Comet</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Galaxy</string>
+               </property>
+              </item>
+             </widget>
             </item>
            </layout>
           </item>

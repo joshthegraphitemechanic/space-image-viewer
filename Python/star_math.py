@@ -1,3 +1,5 @@
 from astropy.mast import Observations
 
-def space_query(target_name, obs_collection, time=None, target_classification=None, proposal_pi=None,
+def space_query(source, obj_name, obj_type, RA, DEC, start_time, end_time, pi_last, sort):
+    pass
+    
