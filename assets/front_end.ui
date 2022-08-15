@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1003</width>
+    <width>1704</width>
     <height>733</height>
    </rect>
   </property>
@@ -23,9 +23,6 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="2">
-       <widget class="QListWidget" name="query_display"/>
-      </item>
       <item row="0" column="1" rowspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -40,18 +37,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="source_telescope_selector">
-              <item>
-               <property name="text">
-                <string>Hubble</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>James Webb</string>
-               </property>
-              </item>
-             </widget>
+             <widget class="QComboBox" name="source_telescope_selector"/>
             </item>
            </layout>
           </item>
@@ -220,13 +206,14 @@
         </item>
        </layout>
       </item>
-      <item row="0" column="3">
-       <widget class="QStackedWidget" name="stackedWidget">
-        <property name="currentIndex">
-         <number>1</number>
+      <item row="0" column="2">
+       <widget class="QTableView" name="query_display">
+        <property name="minimumSize">
+         <size>
+          <width>1000</width>
+          <height>0</height>
+         </size>
         </property>
-        <widget class="QWidget" name="page_3"/>
-        <widget class="QWidget" name="page_4"/>
        </widget>
       </item>
      </layout>
