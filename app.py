@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QTableWidgetItem, QPushButton
 from PyQt5 import uic, QtCore
 from Python.star_math import *
 import pandas as pd
@@ -20,7 +20,24 @@ def write_state(win):
     state_dict["date max"] = Time(window.end_date_edit.date().toString("yyyy-MM-dd"), scale='utc').mjd
     state_dict["last name"] = window.last_name_edit.text()
     state_dict["sort by"] = window.sort_by_selector.currentText()
-    window.query_display.setModel(space_query(state_dict))
+    df = space_query(state_dict)
+
+
+    window.query_display.setRowCount(df.shape[0])
+    window.query_display.setColumnCount(df.shape[1])
+    window.query_display.verticalHeader().hide()
+    headers = ['']
+    headers = headers + df.columns.values.tolist()
+    print(headers)
+    window.query_display.setHorizontalHeaderLabels(headers)
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            entry = df.iloc[i, j]
+            window.query_display.setItem(i, j+1, QTableWidgetItem(str(entry)))
+    for index in range(window.query_display.rowCount()):
+        btn = QPushButton(window.query_display)
+        btn.setText('add')
+        window.query_display.setCellWidget(index, 0, btn)
 
 
 
