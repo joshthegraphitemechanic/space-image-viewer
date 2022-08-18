@@ -1,7 +1,7 @@
 from astroquery.mast import Observations
 import PyQt5
 from PyQt5 import QtCore
-        
+from astropy.table import Table
 
 def populate_sources():
     telescope_sources = Observations.list_missions()
@@ -28,8 +28,15 @@ def space_query(
         params["proposal_pi"] = query_dict["last name"]
     sorting = query_dict["sort by"]
 
-
-
     obs_table = Observations.query_criteria(**params)
+
+    print(type(obs_table))
     data = obs_table.to_pandas()
     return(data)
+
+def download_selected(selection):
+    obs = Table.from_pandas(selection)
+    data_products = Observations.get_product_list(obs)
+    print(data_products)
+    manifest = Observations.download_products(data_products, productType="SCIENCE")
+    print(manifest)
